@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Volume Optimizer",
+    "description": "An engineering analytics solution designed to perform accurate cut-and-fill volume calculations for construction and infrastructure planning. It helps optimize earthwork operations, estimate project costs, and improve efficiency in terrain-based development projects.",
+    "img": "spatial-volume-optimizer.png",
+    "path": "/spatial-volume-optimize"
+  },
+  {
+    "name": "Terrain Analysis",
+    "description": "A geospatial analysis tool that enables users to generate, visualize, and analyze 3D terrain models. It supports advanced terrain evaluation workflows such as elevation profiling, slope analysis, and surface visualization.",
+    "img": "terrain-analysis.png",
+    "path": "/terrain-analysis"
+  },
+  {
+    "name": ".GeoLedger",
+    "description": "A spatial data management platform designed to maintain and track GIS dataset versions using branch versioning workflows. It enables collaborative editing, version control, and reliable management of enterprise geospatial data.",
+    "img": "geo-ledger.png",
+    "path": "/geo-ledger"
+  },
+  {
+    "name": "GeoThree",
+    "description": "A lightweight geospatial visualization application that allows users to interact with spatial data using modern web-based 3D rendering libraries, enabling basic geospatial operations without requiring traditional GIS software.",
+    "img": "geo-three.png",
+    "path": "/geo-three"
+  }
+]

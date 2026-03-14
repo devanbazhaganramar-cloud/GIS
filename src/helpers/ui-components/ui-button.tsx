@@ -38,11 +38,11 @@ const UIButton: React.FC<ButtonProps> = ({
       style={style}
       title={title}
       className={`
+        
         inline-flex items-center justify-center gap-2
         cursor-pointer
-        px-4 py-2
+        px-2 py-2
         rounded-lg
-        border border-base-300
         bg-base-200
         text-base-content
         hover:bg-base-300
@@ -53,7 +53,7 @@ const UIButton: React.FC<ButtonProps> = ({
         disabled:opacity-50
         disabled:cursor-not-allowed
         transition-all duration-200 ease-in-out
-        
+        border-0
         ${className}
       `}
     >

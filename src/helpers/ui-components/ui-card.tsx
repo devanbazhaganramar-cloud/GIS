@@ -13,6 +13,7 @@ interface CardProps {
   shadow?: boolean;
   size?: CardSize;
   expand?: boolean;
+  onClick?: () => void;
 }
 
 const UICard: React.FC<CardProps> = ({
@@ -25,8 +26,9 @@ const UICard: React.FC<CardProps> = ({
   shadow = true,
   size = "medium",
   expand = false,
+  onClick,
 }) => {
-  const [isOpen, setIsOpen] = useState(expand);
+  const [isOpen, setIsOpen] = useState(false);
 
   const sizeMap = {
     small: "p-3 text-sm",
@@ -47,6 +49,7 @@ const UICard: React.FC<CardProps> = ({
         ${isDisabled ? "opacity-50 pointer-events-none" : ""}
         ${className}
       `}
+      onClick={onClick}
     >
       {header && (
         <div
@@ -55,12 +58,14 @@ const UICard: React.FC<CardProps> = ({
         >
           <div className="font-semibold">{header}</div>
 
-          <ChevronDown
-            size={18}
-            className={`transition-transform duration-300 ${
-              isOpen ? "rotate-180" : ""
-            }`}
-          />
+          {expand && (
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-300 ${
+                isOpen ? "rotate-180" : ""
+              }`}
+            />
+          )}
         </div>
       )}
 
