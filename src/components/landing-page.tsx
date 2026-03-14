@@ -36,7 +36,7 @@ export default function LandingPage() {
             className="absolute inset-0"
           >
             <UIImage
-              src={`../src/images/${current.img}`}
+              src={`/images/${current.img}`}
               className="absolute inset-0 w-full h-full object-cover"
             />
 
@@ -69,7 +69,7 @@ export default function LandingPage() {
           {projectList.map((project, i) => (
             <UIImage
               key={i}
-              src={`../src/images/${project.img}`}
+              src={`/images/${project.img}`}
               className={`w-28 h-16 object-cover rounded-md cursor-pointer transition
               ${i === index ? "border-2 border-white" : "opacity-60"}`}
             />
@@ -105,7 +105,7 @@ export default function LandingPage() {
               "
             >
               <UIImage
-                src={`../src/images/${project.img}`}
+                src={`/images/${project.img}`}
                 className="w-full h-160px object-cover"
                 isHoverEffect
               />
