@@ -8,7 +8,6 @@ import {
   ChevronDown,
   ChevronRight,
   MapPin,
-  ListTree,
 } from "lucide-react";
 import UIButton from "../helpers/ui-components/ui-button";
 
@@ -86,7 +85,7 @@ const LayerListWidget: React.FC<LayerListProps> = ({ map }) => {
   };
 
   return (
-    <div className="w-72 max-h-[85vh] bg-base-100 shadow-2xl rounded-xl border border-base-300 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+    <div className="w-72 h-full max-h-[85vh] bg-base-100 shadow-2xl rounded-xl border border-base-300 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
       <div className="p-3 border-b border-base-200 flex items-center justify-between bg-base-200/50 shrink-0">
         <div className="flex items-center gap-2">
           <Layers size={16} className="text-primary" />
@@ -157,8 +156,6 @@ const LayerItem = ({
   isBasemap,
   isExpanded,
   onExpand,
-  showFeatures,
-  onToggleFeatures,
 }: any) => {
   const name = layer?.get
     ? layer.get("name") || "Unnamed Layer"
@@ -167,10 +164,11 @@ const LayerItem = ({
   const source = layer?.getSource?.();
   const hasError = !layer || !source;
 
+  // LOGIC: Extract features from the source
   const features = useMemo(() => {
     if (!source || typeof source.getFeatures !== "function") return [];
     return source.getFeatures();
-  }, [source, isExpanded]);
+  }, [source, isExpanded]); // Re-evaluate when expanded
 
   return (
     <div
@@ -183,7 +181,7 @@ const LayerItem = ({
         >
           {isBasemap ? (
             <div
-              className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-all ${isVisible ? "border-primary bg-primary" : "border-base-content/30"}`}
+              className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center ${isVisible ? "border-primary bg-primary" : "border-base-content/30"}`}
             >
               {isVisible && (
                 <div className="w-1.5 h-1.5 rounded-full bg-white" />
@@ -207,30 +205,14 @@ const LayerItem = ({
 
         <div className="flex items-center gap-1">
           {!isBasemap && isVisible && !hasError && (
-            <>
-              <UIButton
-                prefix={
-                  <ListTree
-                    size={12}
-                    className={showFeatures ? "text-primary" : ""}
-                  />
-                }
-                className={`btn-ghost btn-xs h-7 w-7 transition-opacity ${showFeatures ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
-                onClick={(e: any) => {
-                  e.stopPropagation();
-                  onToggleFeatures();
-                }}
-                title={showFeatures ? "Hide Features" : "Show Features"}
-              />
-              <UIButton
-                prefix={<Maximize2 size={12} />}
-                className="btn-ghost btn-xs h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity"
-                onClick={(e: any) => {
-                  e.stopPropagation();
-                  onZoom();
-                }}
-              />
-            </>
+            <UIButton
+              prefix={<Maximize2 size={12} />}
+              className="btn-ghost btn-xs h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity"
+              onClick={(e: any) => {
+                e.stopPropagation();
+                onZoom();
+              }}
+            />
           )}
           {!isBasemap && (
             <UIButton
@@ -251,8 +233,8 @@ const LayerItem = ({
         </div>
       </div>
 
-      {isExpanded && showFeatures && !hasError && !isBasemap && (
-        <div className="ml-6 border-l-2 border-base-300 pl-2 mb-2 space-y-1 animate-in slide-in-from-top-1 max-h-40 overflow-y-auto custom-scrollbar">
+      {isExpanded && !hasError && !isBasemap && (
+        <div className="ml-6 border-l-2 border-base-300 pl-2 mb-2 space-y-1 animate-in slide-in-from-top-1">
           {features.length > 0 ? (
             features.map((feature: any, i: number) => {
               const featureName =
@@ -260,6 +242,7 @@ const LayerItem = ({
                 feature.get("id") ||
                 feature.getId() ||
                 `Feature ${i + 1}`;
+
               return (
                 <div
                   key={i}
@@ -267,7 +250,7 @@ const LayerItem = ({
                 >
                   <div className="flex items-center gap-1.5 overflow-hidden">
                     <MapPin size={10} className="text-primary/60 shrink-0" />
-                    <span className="text-[11px] truncate opacity-70 group-hover/feat:opacity-100 italic">
+                    <span className="text-[11px] truncate opacity-70 group-hover/feat:opacity-100">
                       {featureName}
                     </span>
                   </div>
