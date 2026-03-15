@@ -1,9 +1,12 @@
 import Map from "ol/Map";
 import View from "ol/View";
-import TileLayer from "ol/layer/Tile";
-import OSM from "ol/source/OSM";
 import { fromLonLat } from "ol/proj";
 import { defaults as defaultControls, Attribution, Rotate } from "ol/control";
+import {
+  mapBaseLayerDt,
+  mapBaseLayerLt,
+  mapBaseLayerSl,
+} from "./useLayerProperties";
 
 interface MapProps {
   name: string;
@@ -46,27 +49,17 @@ export const createOLMap = ({
   }
 
   const map = new Map({
-    layers: [
-      new TileLayer({
-        source: new OSM({
-          // Set custom attribution directly on the source
-          attributions: "anbazhagan - ramar, geoledger community",
-        }),
-        visible: true,
-        properties: { title: "OpenStreetMap" },
-      }),
-    ],
-    // Remove default controls (zoom, attribution, etc.)
+    layers: [mapBaseLayerLt, mapBaseLayerDt, mapBaseLayerSl],
+
     controls: defaultControls({
       zoom: false,
       attribution: false,
       rotate: false,
     }).extend([
-      // Add back the attribution control with specific settings
       new Attribution({
         collapsible: true,
       }),
-      // Add rotation control (allows users to reset rotation to North)
+
       new Rotate({
         autoHide: false,
       }),

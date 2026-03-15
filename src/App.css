@@ -1,0 +1,6 @@
+.ol-attribution {
+  position: absolute;
+  right: 12px !important;
+  bottom: 12px !important;
+  display: flex;
+}

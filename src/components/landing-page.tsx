@@ -8,6 +8,7 @@ import UIImage from "../helpers/ui-components/ui-image";
 import UIText from "../helpers/ui-components/ui-text";
 
 import projectList from "../data/gis-projects.json";
+import UISidebar from "../helpers/ui-components/ui-sidebar";
 
 export default function LandingPage() {
   const [index, setIndex] = useState(0);
@@ -24,7 +25,13 @@ export default function LandingPage() {
   const current = projectList[index];
 
   return (
-    <div className="min-h-screen bg-base-100 text-base-content overflow-x-hidden">
+    <div className="min-h-screen  text-base-content overflow-x-hidden">
+      <UISidebar
+        body={<></>}
+        footer={<p className="text-xs">v1.0.4</p>}
+        className="border-gray-500"
+        style={{ backdropFilter: "blur(10px)" }} 
+      />
       <div className="relative w-full h-[70vh] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.div

@@ -8,26 +8,27 @@ body {
 @import "tailwindcss";
 
 @plugin "daisyui" {
-  themes: lighttheme --default, darktheme --prefersdark;
+  themes:
+    dark --default,
+    light --prefersdark;
 }
 
 @plugin "daisyui/theme" {
-  name: "lighttheme";
+  name: "light";
 
-  --color-base-100: #ffffff;
+  --color-base-100: #f3f4f6;
   --color-base-content: #000000;
 
   --color-primary: #000000;
   --color-secondary: #6b7280;
 
   --color-neutral: #f3f4f6;
-
 }
 
 @plugin "daisyui/theme" {
-  name: "darktheme";
+  name: "dark";
 
-  --color-base-100: #000000;
+  --color-base-100: #212730;
   --color-base-content: #ffffff;
 
   --color-primary: #ffffff;

@@ -11,21 +11,23 @@ const mapView = new View({
 });
 
 const mapBaseLayerLt = new TileLayer({
-  source: new OSM(),
+  source: new OSM({ attributions: "anbazhagan ramar" }),
   visible: true,
 });
 mapBaseLayerLt.set("id", "base-light");
+mapBaseLayerLt.set("type", "basemap");
 mapBaseLayerLt.set("name", "Street Map (Light)");
 
 const mapBaseLayerDt = new TileLayer({
   visible: false,
   source: new XYZ({
     url: "https://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    attributions: "© OpenStreetMap contributors © CARTO",
+    attributions: "anbazhagan ramar",
     crossOrigin: "anonymous",
   }),
 });
 mapBaseLayerDt.set("id", "base-dark");
+mapBaseLayerDt.set("type", "basemap");
 mapBaseLayerDt.set("name", "Street Map (Dark)");
 
 const mapBaseLayerSl = new TileLayer({
@@ -33,12 +35,12 @@ const mapBaseLayerSl = new TileLayer({
   visible: false,
   source: new XYZ({
     url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-    attributions:
-      "Tiles © Esri — Source: Esri, i-cubed, and the GIS User Community",
+    attributions: "anbazhagan ramar",
     crossOrigin: "anonymous",
   }),
 });
 mapBaseLayerSl.set("id", "base-satellite");
+mapBaseLayerSl.set("type", "basemap");
 mapBaseLayerSl.set("name", "Satellite Imagery");
 
 export { mapView, mapBaseLayerLt, mapBaseLayerDt, mapBaseLayerSl };

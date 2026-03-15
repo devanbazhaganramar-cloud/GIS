@@ -25,19 +25,16 @@ const UIModal: React.FC<UIModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
-
-      {/* backdrop */}
       <div
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
       />
 
-      {/* modal */}
       <div
         style={style}
         className={`
           relative
-          bg-base-100
+          
           text-base-content
           rounded-xl
           shadow-xl
@@ -47,8 +44,6 @@ const UIModal: React.FC<UIModalProps> = ({
           ${className}
         `}
       >
-
-        {/* header */}
         <div className="flex justify-between items-center px-6 py-4 border-b border-base-300">
           <div className="text-lg font-semibold">{title}</div>
 
@@ -59,10 +54,8 @@ const UIModal: React.FC<UIModalProps> = ({
           />
         </div>
 
-        {/* body */}
         <div className="p-6 overflow-y-auto">{children}</div>
 
-        {/* footer */}
         {footer && (
           <div className="px-6 py-4 border-t border-base-300 flex justify-end gap-3">
             {footer}

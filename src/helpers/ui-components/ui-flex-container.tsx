@@ -69,7 +69,7 @@ const UIContainer: React.FC<UIContainerProps> = ({
         px-2 sm:px-2 md:px-2 lg:px-2
         py-2
 
-        bg-base-100
+        
         text-base-content
 
         transition-colors duration-300
