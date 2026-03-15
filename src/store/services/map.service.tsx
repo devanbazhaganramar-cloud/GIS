@@ -5,11 +5,13 @@ import type VectorLayer from "ol/layer/Vector";
 interface mapServiceState {
   primaryMap: Map | null;
   primaryMapVectorLayer: VectorLayer[] | [];
+  olMapList: Map[] | [];
 }
 
 const initialState: mapServiceState = {
   primaryMap: null,
   primaryMapVectorLayer: [],
+  olMapList: [],
 };
 
 export const mapServiceSlice = createSlice({
@@ -24,6 +26,14 @@ export const mapServiceSlice = createSlice({
         ...state.primaryMapVectorLayer,
         action.payload,
       ];
+    },
+    setOlMapList: (state, action) => {
+      state.olMapList = [...state.olMapList, action.payload];
+    },
+    removeMapFromList: (state, action) => {
+      state.olMapList = state.olMapList.filter(
+        (olMap) => action.payload != olMap.get("name"),
+      );
     },
   },
 });
