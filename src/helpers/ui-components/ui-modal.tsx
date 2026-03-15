@@ -41,7 +41,7 @@ const UIModal: React.FC<UIModalProps> = ({
           text-base-content
           rounded-xl
           shadow-xl
-          w-[90%] md:w-[600px]
+          w-[90%] md:w-600px
           max-h-[90vh]
           flex flex-col
           ${className}
