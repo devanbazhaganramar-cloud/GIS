@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import mapReducer from "./services/map.service";
 export const store = configureStore({
   reducer: {
-   
     mapService: mapReducer,
   },
 
