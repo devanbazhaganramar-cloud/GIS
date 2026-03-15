@@ -38,6 +38,10 @@ export const mapServiceSlice = createSlice({
   },
 });
 
-export const { setPrimaryMap, setPrimaryMapVectorLayer } =
-  mapServiceSlice.actions;
+export const {
+  setPrimaryMap,
+  setPrimaryMapVectorLayer,
+  setOlMapList,
+  removeMapFromList,
+} = mapServiceSlice.actions;
 export default mapServiceSlice.reducer;

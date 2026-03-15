@@ -8,7 +8,7 @@ const AppHeader: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-full bg-base-100 text-base-content shadow-sm sticky top-0 z-50">
+    <div className="w-full  h-[10vh] text-base-content shadow-sm sticky top-0 z-50">
       <UIContainer justify="end" align="center" className="px-6 py-3">
         <UIButton
           prefix={<Home size={20} />}

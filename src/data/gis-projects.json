@@ -3,7 +3,7 @@
     "name": "Volume Optimizer",
     "description": "An engineering analytics solution designed to perform accurate cut-and-fill volume calculations for construction and infrastructure planning. It helps optimize earthwork operations, estimate project costs, and improve efficiency in terrain-based development projects.",
     "img": "spatial-volume-optimizer.png",
-    "path": "/spatial-volume-optimize"
+    "path": "/spatial-volume-optimizer"
   },
   {
     "name": "Terrain Analysis",
