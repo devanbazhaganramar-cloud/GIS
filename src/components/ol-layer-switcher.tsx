@@ -9,13 +9,18 @@ export const LayerListToggle = ({ map }: { map: any }) => {
   return (
     <div className="relative ">
       {" "}
+      {/* Keep relative to anchor the list */}
       <UIButton
         prefix={isOpen ? <X size={18} /> : <Layers size={18} />}
         onClick={() => setIsOpen(!isOpen)}
         className={`btn-square shadow-md ${isOpen ? "btn-primary" : "bg-base-100"}`}
       />
       {isOpen && (
-        <div className="absolute top-0 right-12 z-50  h-[60vh] overflow-auto scrollbar-thin scrollbar-track-base-200 scrollbar-thumb-primary">
+        /* Position the list to the LEFT of the button stack 
+           - right-12: pushes it away from the button width
+           - top-0: aligns it with the button top
+        */
+        <div className="absolute top-0 right-12 z-50  h-[60vh] overflow-auto scroll-m-0">
           <LayerListWidget map={map} />
         </div>
       )}
