@@ -3,10 +3,10 @@ import UIButton from "../helpers/ui-components/ui-button";
 import { Sun, Moon } from "lucide-react";
 
 const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState("lighttheme");
+  const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
-    const newTheme = theme === "lighttheme" ? "darktheme" : "lighttheme";
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     document.documentElement.setAttribute("data-theme", newTheme);
   };

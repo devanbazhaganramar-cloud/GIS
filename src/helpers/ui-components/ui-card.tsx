@@ -42,7 +42,7 @@ const UICard: React.FC<CardProps> = ({
     <div
       style={style}
       className={`
-        bg-base-100 border border-base-300 rounded-xl
+         border border-base-300 rounded-xl
         transition-all duration-300 ease-in-out
         ${shadowClass}
         ${sizeMap[size]}
