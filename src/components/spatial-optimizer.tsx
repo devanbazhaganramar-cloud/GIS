@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import {
   Settings,
   Play,
   Layers,
   Box,
   Sliders,
-  ChevronRight,
   Save,
   Database,
   Compass,
@@ -26,7 +24,6 @@ const SpatialOptimizer: React.FC = () => {
     rowSpacing: 5.5,
   });
 
-  const [activeTab, setActiveTab] = useState("parameters");
 
   return (
     <div className="flex flex-col w-full h-screen bg-base-300 transition-colors duration-500 overflow-hidden">
@@ -147,7 +144,7 @@ const SpatialOptimizer: React.FC = () => {
             <UIButton
               prefix={<Play size={16} />}
               mid="Execute Layout"
-              className="w-full bg-primary text-base-100 py-4 font-black uppercase tracking-[0.15em] text-[11px] shadow-xl hover:translate-y-[-2px]"
+              className="w-full bg-primary text-base-100 py-4 font-black uppercase tracking-[0.15em] text-[11px] shadow-xl hover:translate-y"
             />
             <UIButton
               prefix={<Save size={14} />}
@@ -173,7 +170,7 @@ const SpatialOptimizer: React.FC = () => {
                     className="bg-transparent hover:bg-base-200 border-none w-10 h-10"
                     title="3D Engine"
                   />
-                  <div className="w-[1px] h-6 bg-base-content/10 self-center mx-1" />
+                  <div className="w-1px h-6 bg-base-content/10 self-center mx-1" />
                   <UIButton
                     prefix={<Layers size={16} />}
                     className="bg-transparent hover:bg-base-200 border-none w-10 h-10"
@@ -184,7 +181,7 @@ const SpatialOptimizer: React.FC = () => {
                     className="bg-transparent hover:bg-base-200 border-none w-10 h-10"
                     title="Analysis Tools"
                   />
-                  <div className="w-[1px] h-6 bg-base-content/10 self-center mx-1" />
+                  <div className="w-1px h-6 bg-base-content/10 self-center mx-1" />
                   <UIButton
                     prefix={<Settings size={16} />}
                     className="bg-transparent hover:bg-base-200 border-none w-10 h-10"
